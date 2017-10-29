@@ -84,7 +84,7 @@ RUN mv /etc/php/7.1/apache2/php.ini /etc/php/7.1/apache2/php.ini.dist && \
     ln -s /etc/php/7.1/php.ini /etc/php/7.1/cli/php.ini
 
 # override default vhost
-COPY ./vhost.conf:/etc/apache2/sites-available/000-default.conf
+COPY ./vhost.conf /etc/apache2/sites-available/000-default.conf
 
 # clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
