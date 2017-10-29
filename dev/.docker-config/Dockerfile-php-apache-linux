@@ -2,10 +2,14 @@ FROM qalliance/php-apache:latest
 
 MAINTAINER Tin Benjamin Matuka <tin@q-alliance.com>
 
+USER root
+
 # hack to fix www-data not being able to write to the mounted volume
 ARG www_data_uid
 ARG www_data_gid
 RUN groupmod -g $www_data_gid www-data && \
     usermod -u $www_data_uid -g $www_data_gid www-data && \
-    chown -R www-data. /var/www &&
+    chown -R www-data. /var/www && \
     chown www-data. /usr/local/bin/composer
+
+USER www-data

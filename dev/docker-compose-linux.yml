@@ -19,7 +19,7 @@ services:
     web:
         build:
             context: ./.docker-config/
-            dockerfile: ./.docker-config/Dockerfile-php-apache-linux
+            dockerfile: ./Dockerfile-php-apache-linux
             args:
                 www_data_uid: "$DOCKER_UID"
                 www_data_gid: "$DOCKER_GID"
@@ -35,7 +35,7 @@ services:
     nodejs:
         build:
             context: ./.docker-config/
-            dockerfile: ./.docker-config/Dockerfile-nodejs-linux
+            dockerfile: ./Dockerfile-nodejs-linux
             args:
                 www_data_uid: "$DOCKER_UID"
                 www_data_gid: "$DOCKER_GID"
