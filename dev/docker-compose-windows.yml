@@ -1,0 +1,36 @@
+version: '2'
+
+services:
+    db:
+        image: percona
+        volumes:
+            - './.docker-data/db:/var/lib/mysql'
+        environment:
+            MYSQL_ROOT_PASSWORD: 'd0ck3r!'
+            MYSQL_DATABASE: 'db'
+            MYSQL_USER: 'user'
+            MYSQL_PASSWORD: 'passw0rd!'
+        ports:
+            - '3306:3306'
+    mail:
+        image: tophfr/mailcatcher
+        ports:
+            - '1080:80'
+    web:
+        image: qalliance/php-apache
+        volumes:
+            - '.:/app'
+            - './.docker-config/vhost.conf:/etc/apache2/sites-available/000-default.conf'
+            - './.docker-config/php.ini:/etc/php/7.1/php.ini'
+            - './.docker-config/php-xdebug.ini:/etc/php/7.1/mods-available/xdebug-settings.ini'
+        environment:
+            COMPOSER_ALLOW_XDEBUG: '1'
+        ports:
+            - '80:80'
+    nodejs:
+        image: qalliance/nodejs
+        volumes:
+            - '.:/app'
+            - './.docker-data/nodejs:/var/www/nvm-volume'
+        ports:
+            - '3000:3000'
