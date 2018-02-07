@@ -75,7 +75,8 @@ RUN curl https://getcomposer.org/installer > composer-setup.php && \
     php composer-setup.php && \
     mv composer.phar /usr/local/bin/composer && \
     rm composer-setup.php && \
-    chown www-data:www-data /usr/local/bin/composer
+    chown www-data:www-data /usr/local/bin/composer && \
+    chown -R www-data. /var/www
 
 # link php.ini
 RUN mv /etc/php/7.1/apache2/php.ini /etc/php/7.1/apache2/php.ini.dist && \

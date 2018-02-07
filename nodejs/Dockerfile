@@ -17,7 +17,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 # prepare www-data to be used as main user
 RUN usermod -s /bin/bash -G staff www-data && \
     mkdir -p /var/www && \
-    chown www-data. /var/www
+    chown -R www-data. /var/www
 
 # install nvm
 RUN sudo -i -u www-data sh -c 'curl -sL -o- "https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh" | bash' && \
