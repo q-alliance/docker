@@ -54,7 +54,7 @@ RUN apt-get install -y --force-yes \
     php-xdebug && \
     phpenmod apcu && \
     phpenmod apcu_bc && \
-    a2enmod rewrite headers
+    a2enmod rewrite headers ssl
 
 # add xdebug settings
 COPY ./php-xdebug.ini /etc/php/7.1/mods-available/xdebug-settings.ini
