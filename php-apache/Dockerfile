@@ -51,6 +51,7 @@ RUN apt-get install -y --force-yes \
     php-memcached \
     php-apcu \
     php-apcu-bc \
+    php-mail \
     php-xdebug && \
     phpenmod apcu && \
     phpenmod apcu_bc && \
@@ -63,6 +64,11 @@ RUN phpenmod xdebug-settings
 # output apache logs to stdout
 RUN ln -sf /proc/self/fd/1 /var/log/apache2/access.log && \
     ln -sf /proc/self/fd/1 /var/log/apache2/error.log
+
+# set up sendmail so that mail() works
+RUN apt-get install -y --force-yes ssmtp && \
+    echo 'FromLineOverride=YES' >> /etc/ssmtp/ssmtp.conf && \
+    echo 'mailhub=mail:25' >> /etc/ssmtp/ssmtp.conf
 
 # prepare www-data to be used as main user
 RUN usermod -s /bin/bash -G staff www-data && \
