@@ -28,10 +28,12 @@ services:
             - './.docker-config/vhost.conf:/etc/apache2/sites-available/000-default.conf'
             - './.docker-config/php.ini:/etc/php/7.1/php.ini'
             - './.docker-config/php-xdebug.ini:/etc/php/7.1/mods-available/xdebug-settings.ini'
+            - './.docker-config/ssl:/etc/ssl/docker'
         environment:
             COMPOSER_ALLOW_XDEBUG: '1'
         ports:
             - '80:80'
+            - '443:443'
     nodejs:
         build:
             context: ./.docker-config/
@@ -44,4 +46,3 @@ services:
             - './.docker-data/nodejs:/var/www/nvm-volume'
         ports:
             - '3000:3000'
-        command: ["npm start"]
