@@ -39,8 +39,8 @@ If your project is outside of /Users, you will need to add it to the shared dire
 
 ### Node.js
   * Create a file named `.nvmrc` containing the node version that you want (for example `v8.8.0`)
-  * Install that version of node in docker: `docker-compose run --rm nodejs 'nvm install'`.
-  * Run npm/yarn commands in docker like this: `docker-compose run --rm nodejs 'npm install'`
+  * Install that version of node in docker: `docker-compose run --rm nodejs nvm install`.
+  * Run npm/yarn commands in docker like this: `docker-compose run --rm nodejs npm install`
 
 Consider creating an alias for the first part of the command to make your life easier.
 

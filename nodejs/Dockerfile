@@ -33,8 +33,12 @@ COPY ./sudoers /etc/sudoers.d/www-data
 COPY ./nodejs-profile /var/www/.profile
 RUN chown -R www-data. /var/www
 
+COPY ./entrypoint.sh /usr/local/bin/
+
 WORKDIR /app/
 
 USER www-data
 
-ENTRYPOINT ["/bin/bash", "--login", "-i", "-c"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+CMD ["echo", "Doing nothing by default."]
