@@ -94,7 +94,7 @@ RUN mv /etc/php/7.1/apache2/php.ini /etc/php/7.1/apache2/php.ini.dist && \
 COPY ./vhost.conf /etc/apache2/sites-available/000-default.conf
 
 # set up default command
-COPY ./apache2-foreground.sh /usr/local/bin/
+COPY ./apache2-foreground.sh /usr/local/sbin/
 
 # clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -103,4 +103,4 @@ WORKDIR /app/
 
 USER www-data
 
-CMD sudo /usr/sbin/apache2ctl -D FOREGROUND
+CMD sudo /usr/local/sbin/apache2-foreground.sh

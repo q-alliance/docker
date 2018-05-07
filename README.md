@@ -21,7 +21,7 @@ Your host already has an application running on the specified port. Most likely,
 1. Remove the port mapping in your docker-compose.yml. If you don't need this service mapped (for exampleif you are running Browsersync outside of docker), you can simply remove the mapping.
 
 ### web_1 | httpd (pid *) already running
-Sometimes Apache has trouble shutting down. To be sure you shut it down completely, you can run `docker-compose down`. After that it should start normally when you run `docker-compose up`.
+This issue has been fixed. If you run into it, update the image by running: `docker pull qalliance/php-apache`
 
 ### npm or yarn watchers slow or maxing out CPU on OSX
 Mac OS has pretty slow file sharing with Docker and in most cases we suggest installing nvm and yarn on the host and running the watcher on the host.
