@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 MAINTAINER Tin Benjamin Matuka <tin@q-alliance.com>
 
@@ -10,10 +10,10 @@ RUN apt-get clean && \
 RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && apt-get update
 
 # install apache, php and php modules
-RUN apt-get install -y --force-yes \
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes \
     apache2 \
     nano \
-    lynx-cur \
+    lynx \
     libapache2-mod-php7.1 \
     php7.1-bcmath \
     php7.1-bz2 \
