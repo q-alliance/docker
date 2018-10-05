@@ -22,10 +22,12 @@ services:
             - '.:/app'
             - './.docker-config/vhost.conf:/etc/apache2/sites-available/000-default.conf'
             - './.docker-config/php.ini:/etc/php/7.1/php.ini'
-            - './.docker-config/php-xdebug.ini:/etc/php/7.1/mods-available/xdebug-settings.ini'
             - './.docker-config/ssl:/etc/ssl/docker'
+            # Uncomment the following line to enable xdebug
+#            - './.docker-config/php-xdebug-phpstorm.ini:/etc/php/7.1/mods-available/xdebug-settings.ini'
         environment:
             COMPOSER_ALLOW_XDEBUG: '1'
+            PHP_IDE_CONFIG: 'serverName=q-docker-php-apache'
         ports:
             - '80:80'
             - '443:443'

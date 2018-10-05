@@ -5,7 +5,7 @@ MAINTAINER Tin Benjamin Matuka <tin@q-alliance.com>
 # install deps
 RUN apt-get clean && \
     apt-get -y update && \
-    apt-get install -y locales curl software-properties-common git apt-transport-https sudo && \
+    apt-get install -y locales curl software-properties-common git apt-transport-https sudo telnet dnsutils inetutils-ping && \
     locale-gen en_US.UTF-8
 RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && apt-get update
 
@@ -57,9 +57,8 @@ RUN apt-get install -y --force-yes \
     phpenmod apcu_bc && \
     a2enmod rewrite headers ssl
 
-# add xdebug settings
+# add xdebug settings - don't enable the mod by default
 COPY ./php-xdebug.ini /etc/php/7.1/mods-available/xdebug-settings.ini
-RUN phpenmod xdebug-settings
 
 # output apache logs to stdout
 RUN ln -sf /proc/self/fd/1 /var/log/apache2/access.log && \

@@ -12,4 +12,8 @@ RUN groupmod -g $www_data_gid www-data && \
     chown -R www-data. /var/www && \
     chown www-data. /usr/local/bin/composer
 
+# create a file so that we know that the host is Linux (for xdebug)
+RUN echo 'linux' > /etc/docker_host && \
+    chmod +r /etc/docker_host
+
 USER www-data
