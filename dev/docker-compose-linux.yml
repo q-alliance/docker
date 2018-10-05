@@ -10,6 +10,7 @@ services:
             MYSQL_DATABASE: 'db'
             MYSQL_USER: 'user'
             MYSQL_PASSWORD: 'passw0rd!'
+            TERM: '$TERM'
         ports:
             - '3306:3306'
     mail:
@@ -33,6 +34,7 @@ services:
         environment:
             COMPOSER_ALLOW_XDEBUG: '1'
             PHP_IDE_CONFIG: 'serverName=q-docker-php-apache'
+            TERM: '$TERM'
         ports:
             - '80:80'
             - '443:443'
@@ -46,5 +48,7 @@ services:
         volumes:
             - '.:/app'
             - './.docker-data/nodejs:/var/www/nvm-volume'
+        environment:
+            TERM: '$TERM'
         ports:
             - '3000:3000'
