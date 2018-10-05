@@ -2,7 +2,7 @@
 
 ## Add docker to your project
 1. Copy everything from `dev/` to your project, including the "hidden" directory `.docker-config/`. Our setup comes with a mix of containers that fit our development needs, but you can remove or replace them in the docker-compose-* files.
-1. Add `docker-compose.yml` and `.docker-data/` to your project's `.gitignore`
+1. Add `docker-compose.yml`, `.docker-config/php-xdebug.ini` and `.docker-data/` to your project's `.gitignore`
 1. Symlink or copy the OS-specific docker-compose file to `docker-compose.yml`. For example, if you're running Linux, you copy or symlink the `docker-compose-linux.yml` file to `docker-compose.yml`.
 1. __Linux only:__ export your UID and GID by adding these lines to your `~/.bashrc`, `~/.bash_profile` or some other script that runs on shell startup:
     ```bash
@@ -50,7 +50,9 @@ Our setup has all the basic services we need for a PHP based web project.
 ### web - Apache and PHP
 Apache is set up to run on standard ports: `80` for http and `443` for https. A valid (not self-signed) __SSL__ certificate is included in our setup. It covers the wildcard __*.q-devs.com__ domain, which is also pointed to 127.0.0.1 on our DNS. This allows you to easily use a different subdomain for each of your projects and prevents a lot of browser caching issues.
 
-PHP in the container is version __7.1__ with pretty much all common modules installed and enabled. It also has __xdebug__ set up with idekey `PHPSTORM`, but you can that and any other xdebug options in the `.docker-config/php-xdebug.ini` file.
+PHP in the container is version __7.1__ with pretty much all common modules installed and enabled. You can change the `php.ini` file for your project in `.docker-config/php.ini`. Map your project root to `/app` in PhpStorm for mapping to work correctly.
+
+__Xdebug__ is also set up, but not on by default (for performance reasons). The default idekey is `PHPSTORM`, but you can change that and any other xdebug options by creating a `.docker-config/php-xdebug.ini` file and pointing the volume to it in your `docker-compose.yml`.
 
 PHP __composer__ is also globally installed in the container so that you can easily manage your dependencies from within the container.
 
