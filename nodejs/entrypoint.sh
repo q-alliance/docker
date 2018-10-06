@@ -4,4 +4,11 @@ set -e
 
 args="$@"
 
-/bin/bash --login -i -c "${args}"
+if [[ "$-" =~ i ]]
+then
+    # interactive
+    /bin/bash --login -i -c "${args}"
+else
+    # non-interactive
+    /bin/bash --login -c "${args}"
+fi

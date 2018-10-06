@@ -50,9 +50,9 @@ Our setup has all the basic services we need for a PHP based web project.
 ### web - Apache and PHP
 Apache is set up to run on standard ports: `80` for http and `443` for https. A valid (not self-signed) __SSL__ certificate is included in our setup. It covers the wildcard __*.q-devs.com__ domain, which is also pointed to 127.0.0.1 on our DNS. This allows you to easily use a different subdomain for each of your projects and prevents a lot of browser caching issues.
 
-PHP in the container is version __7.1__ with pretty much all common modules installed and enabled. You can change the `php.ini` file for your project in `.docker-config/php.ini`. Map your project root to `/app` in PhpStorm for mapping to work correctly.
+Default PHP version in the container is __7.1__ with pretty much all common modules installed and enabled. You can change the PHP version through the environment variable in your `docker-compose.yml` file and it will get switched on your next `docker-compose up`. You can also modify the `php.ini` file for your project in `.docker-config/php.ini`.
 
-__Xdebug__ is also set up, but not on by default (for performance reasons). The default idekey is `PHPSTORM`, but you can change that and any other xdebug options by creating a `.docker-config/php-xdebug.ini` file and pointing the volume to it in your `docker-compose.yml`.
+__Xdebug__ is also set up, but it is turned __off by default__ (for performance reasons). The default idekey is `PHPSTORM`, but you can change that and any other xdebug options by creating a `.docker-config/php-xdebug.ini` file and pointing the volume to it in your `docker-compose.yml`. Map your project root to `/app` in PhpStorm for mapping to work correctly.
 
 PHP __composer__ is also globally installed in the container so that you can easily manage your dependencies from within the container.
 
