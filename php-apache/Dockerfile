@@ -16,6 +16,7 @@ RUN apt-get clean && \
         iproute2 \
         telnet \
         dnsutils \
+        unzip \
         inetutils-ping && \
     locale-gen en_US.UTF-8 && \
     LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && apt-get update && \
