@@ -25,6 +25,7 @@ RUN apt-get clean && \
         nano \
         lynx \
         ssmtp \
+        imagemagick \
         php5.6 php7.0 php7.1 php7.2 \
         libapache2-mod-php5.6 libapache2-mod-php7.0 libapache2-mod-php7.1 libapache2-mod-php7.1 libapache2-mod-php7.2 \
         php5.6-bcmath php7.0-bcmath php7.1-bcmath php7.2-bcmath \
@@ -67,6 +68,8 @@ RUN apt-get clean && \
         php-apcu \
         php-apcu-bc \
         php-mail \
+        php-imagick \
+        php-amqp \
         php-xdebug && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
