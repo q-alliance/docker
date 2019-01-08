@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-MAINTAINER Tin Benjamin Matuka <tin@q-alliance.com>
+MAINTAINER Tin Benjamin Matuka <tin@q-software.com>
 
 # install deps
 RUN apt-get clean && \

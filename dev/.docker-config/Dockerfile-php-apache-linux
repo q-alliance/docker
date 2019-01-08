@@ -1,6 +1,6 @@
 FROM qalliance/php-apache:latest
 
-MAINTAINER Tin Benjamin Matuka <tin@q-alliance.com>
+MAINTAINER Tin Benjamin Matuka <tin@q-software.com>
 
 USER root
 
