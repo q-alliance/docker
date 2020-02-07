@@ -22,7 +22,7 @@ fi
 # use default or specified PHP version
 phpVersion="7.1"
 
-if [ -n "${PHP_VERSION}" ] && [[ "${PHP_VERSION}" =~ ^5.6|7.[0-3]$ ]]
+if [ -n "${PHP_VERSION}" ] && [[ "${PHP_VERSION}" =~ ^5.6|7.[0-4]$ ]]
 then
     phpVersion="${PHP_VERSION}"
 fi
