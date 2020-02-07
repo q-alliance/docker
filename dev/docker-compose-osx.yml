@@ -2,7 +2,7 @@ version: '2'
 
 services:
     db:
-        image: percona:5.7
+        image: mysql:5.7
         volumes:
             - './.docker-data/db:/var/lib/mysql'
         environment:
