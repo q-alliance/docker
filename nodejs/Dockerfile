@@ -20,7 +20,7 @@ RUN usermod -s /bin/bash -G staff www-data && \
     chown -R www-data. /var/www
 
 # install nvm
-RUN sudo -i -u www-data sh -c 'curl -sL -o- "https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh" | bash' && \
+RUN sudo -i -u www-data sh -c 'curl -sL -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh" | bash' && \
     sudo -u www-data mkdir /var/www/nvm-volume
 
 # clean up
