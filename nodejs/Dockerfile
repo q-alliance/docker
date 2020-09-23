@@ -5,7 +5,7 @@ MAINTAINER Tin Benjamin Matuka <tin@q-software.com>
 # install deps
 RUN apt-get clean && \
     apt-get -y update && \
-    apt-get install -y locales curl sudo build-essential libssl-dev apt-transport-https && \
+    apt-get install -y locales curl sudo build-essential libssl-dev apt-transport-https git && \
     locale-gen en_US.UTF-8
 
 # install yarn without nodejs
